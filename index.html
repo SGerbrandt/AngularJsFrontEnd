@@ -21,11 +21,6 @@
 </head>
 <body>
 	<div ng-controller="Issues">
-		<!-- <ul>
-			<li ng-repeat="issue in issues"> The ID is {{issue.user.login}} </li>
-			
-		</ul> -->
-
 		<p>There are {{pageCount}} pages of issues in the last 7 days</p>
 		<br>
 		Page:
@@ -35,7 +30,6 @@
 			ng-change="getSpecificPage(pageSelect)">
 		</select>
 		<table width="100%">
-				<!-- title body userlogin assignee login -->
 			<tr>
 				<td>Title</td>
 				<td>Body</td>
@@ -53,7 +47,6 @@
 				<td>{{issue.created_at}}</td>
 			</tr>
 		</table>
-		<!-- <p>The content is {{greeting.content}}</p> -->
 	</div>
 </body>
 </html>
