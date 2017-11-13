@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="AngularIssues">
+<style>
+	table, th , td  {
+	  border: 1px solid grey;
+	  border-collapse: collapse;
+	  padding: 5px;
+	}
+	table tr:nth-child(odd) {
+	  background-color: #f1f1f1;
+	}
+	table tr:nth-child(even) {
+	  background-color: #ffffff;
+	}
+</style>
+<head>
+	<meta charset="utf-8"/>
+	<title>AngularJS Issues</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+	<script src="issues.js"></script>
+</head>
+<body>
+	<div ng-controller="Issues">
+		<!-- <ul>
+			<li ng-repeat="issue in issues"> The ID is {{issue.user.login}} </li>
+			
+		</ul> -->
+
+		<p>There are {{pageCount}} pages of issues in the last 7 days</p>
+		<br>
+		Page:
+		<select 
+			ng-model="pageSelect" 
+			ng-options="x for x in pages"
+			ng-change="getSpecificPage(pageSelect)">
+		</select>
+		<table width="100%">
+				<!-- title body userlogin assignee login -->
+			<tr>
+				<td>Title</td>
+				<td>Body</td>
+				<td>User Login</td>
+				<td>Assignee Login</td>
+				<td>Updated At</td>
+				<td>Created At</td>
+			</tr>
+			<tr ng-repeat="issue in issues">
+				<td>{{issue.title}}</td>
+				<td>{{issue.body}}</td>
+				<td>{{issue.user.login}}</td>
+				<td>{{issue.assignee.login}}</td>
+				<td>{{issue.updated_at}}</td>
+				<td>{{issue.created_at}}</td>
+			</tr>
+		</table>
+		<!-- <p>The content is {{greeting.content}}</p> -->
+	</div>
+</body>
+</html>
